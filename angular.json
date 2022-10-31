@@ -28,7 +28,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/scss/bootstrap.scss"
             ],
             "scripts": []
           },
@@ -123,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "loanManagement"
+    }
+  },
+  "defaultProject": "loanManagement",
+  "cli": {
+    "analytics": "f5045965-e9f4-4a90-a485-c940f4035c99"
+  }
 }

@@ -1,0 +1,66 @@
+<div class="container">
+      <nav class="navbar bg-light">
+            <div class="container">
+              <a class="navbar-brand" href="#">
+                  <h2>
+                     <small class="text-muted"><b>Welcome to Customer Registration</b></small>
+                  </h2>  
+               <hr>
+              </a>
+            </div>
+          </nav><br><br>
+          <span  style="font-weight: bold;">Fill the Details</span><br><br>
+          <div class="input-group">
+            <span class="input-group-text">First and last name</span>
+            <input type="text" aria-label="First name" class="form-control" placeholder="first name" formControlName ="firstName" required>
+            <input type="text" aria-label="Last name" class="form-control" placeholder="last name"  formControlName ="lastName" required>
+          </div>
+         
+          <br>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text form-label" id="addon-wrapping">Mobile Number</span>
+            <input type="number" maxlength="10" minlength="10" class="form-control" placeholder="enter mobile number" aria-label="Username" aria-describedby="addon-wrapping" id="validationCustom03" required>
+          </div>
+          <br>
+          <div class="input-group">
+            <span class="input-group-text">Address</span>
+            <textarea class="form-control" aria-label="With textarea" placeholder="enter address here" required></textarea>
+          </div>
+          <br>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Date of Birth</span>
+            <input type="date" maxlength="10" minlength="10" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" required>
+          </div>
+          <br>
+            <span>Maritial Status</span>
+          <select class="form-select" aria-label="Disabled select example" required>
+            <option selected>Select from here</option>
+            <option value="1">Married</option>
+            <option value="2">Unmarried</option>
+            <option value="3">Divorced</option>
+          </select>
+          <br>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text form-label" id="addon-wrapping">Email-Id</span>
+            <input type="email"  maxlength="30" minlength="5"  class="form-control" placeholder="enter email here" aria-label="Username" aria-describedby="addon-wrapping" required>
+          </div>
+          
+          <br>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Password</span>
+            <input type="text" maxlength="20" minlength="6" class="form-control" placeholder="enter password" aria-label="Username" aria-describedby="addon-wrapping" required>
+          </div>
+          <br>
+          <div class="input-group flex-nowrap">
+            <span class="input-group-text" id="addon-wrapping">Confirm Password</span>
+            <input type="password" maxlength="20" minlength="6" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="addon-wrapping" required>
+          </div>
+          <br>
+          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button class="btn btn-primary me-md-2" type="button">Register</button>
+            <button class="btn btn-secondary" type="button">Reset</button>
+          </div>
+      
+         
+      </div>
+      

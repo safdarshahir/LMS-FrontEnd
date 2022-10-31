@@ -1,0 +1,53 @@
+<div class="container">
+
+
+      <div class="header">
+            <div class="list-row">
+                  <input type="text" class="form-control" id="searchbar" placeholder="search here.."/>
+            </div>
+      </div>
+            <table class="table table-borderd table-striped">
+                  <thead>
+                        <tr>
+                              <th>LoanId</th>
+                              <th>customerName </th>
+                              <th>LoanAmount</th>
+                              <th>gender</th>
+                              <th>address</th>
+                              <th>phoneNumber</th>
+                              <th>salary</th>
+                              <th>occupation</th>
+                              <th>requestCreatedDate</th>
+                              <th>fieldOfficer</th>
+                              <th>loanType</th>
+
+                              
+                        </tr>
+                  </thead>
+                  <tbody>
+      
+                        <tr *ngFor = "let Loan of this.customerService.loan" >
+                         
+                              <td >{{Loan.loanId}}</td>
+                              <td >{{Loan.customer.customerName}}</td>
+                              <td >{{Loan.loanAmount}}</td>
+                              <td >{{Loan.customer.gender}}</td>
+                              <td >{{Loan.customer.address}}</td>
+                              <td >{{Loan.customer.phoneNumber}}</td>
+                              <td >{{Loan.customer.salary}}</td>
+                              <td >{{Loan.customer.occupation}}</td>
+                              <td>{{Loan.requestCreatedDate}}</td>
+                              <td>{{Loan.fieldOfficer.fielOfficerName}}</td>
+                              <td>{{Loan.loanType.loanTypeName}}</td>
+                              
+                        </tr>
+                  </tbody>
+            </table>
+            <!-- <div class="footer">
+                  Pagination -->
+                  <!-- <pagination-controls (pageChange) = "page=($event)"></pagination-controls>
+            </div>  -->
+      </div>
+      
+      
+      

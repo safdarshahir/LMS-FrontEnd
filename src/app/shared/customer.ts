@@ -11,6 +11,7 @@ export class Customer {
       occupation: string =''
       userId:number =0
       user:User 
+      
 
 
 }

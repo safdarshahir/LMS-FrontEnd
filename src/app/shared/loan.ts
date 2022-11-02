@@ -17,5 +17,6 @@ export class Loan {
       fieldOfficer:FieldOfficer
       loanType:LoanType
       fielOfficerId:number=0
+      active:boolean 
       
 }

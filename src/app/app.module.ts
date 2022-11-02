@@ -12,6 +12,8 @@ import { AuthService } from './shared/auth.service';
 import { CustomerService } from './shared/customer.service';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     FieldOfficerComponent,
     CustomerLoanDetailsComponent,
     CustomerListComponent,
-    // LoginComponent,
+    LoginComponent,
+    PagenotfoundComponent,
     
   ],
   imports: [

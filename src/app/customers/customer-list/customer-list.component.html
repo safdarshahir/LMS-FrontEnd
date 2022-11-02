@@ -1,12 +1,18 @@
+
+    
 <div class="container">
-
-
-      <div class="header">
-            <div class="list-row">
-                  <input type="text" class="form-control" id="searchbar" placeholder="search here.."/>
+      <nav class="navbar bg-light">
+            <div class="container-fluid">
+                  <form class="d-flex" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                      </form>
+                  <a class="navbar-brand" (click) ="logOut()">Logout</a>
+             
             </div>
-      </div>
-            <table class="table table-borderd table-striped">
+          </nav>
+    
+            <table class="table table-success table-hover">
                   <thead>
                         <tr>
                               <th>LoanId</th>
@@ -20,6 +26,7 @@
                               <th>requestCreatedDate</th>
                               <th>fieldOfficer</th>
                               <th>loanType</th>
+                              <th>Action</th>
 
                               
                         </tr>
@@ -27,7 +34,7 @@
                   <tbody>
       
                         <tr *ngFor = "let Loan of this.customerService.loan" >
-                         
+                              <ng-container *ngIf ="Loan.active ">
                               <td >{{Loan.loanId}}</td>
                               <td >{{Loan.customer.customerName}}</td>
                               <td >{{Loan.loanAmount}}</td>
@@ -39,14 +46,21 @@
                               <td>{{Loan.requestCreatedDate}}</td>
                               <td>{{Loan.fieldOfficer.fielOfficerName}}</td>
                               <td>{{Loan.loanType.loanTypeName}}</td>
+                              <!-- <td>{{Loan.active}}</td> -->
+
+                              <td>
+                                    <button type="button" class="btn btn-success">Approve</button>&nbsp;
+                              <button type="button" class="btn btn-danger" (click) ="rejectLoan(Loan)">Reject</button>
                               
+                              </td>
+                              </ng-container>
                         </tr>
                   </tbody>
             </table>
             <!-- <div class="footer">
-                  Pagination -->
-                  <!-- <pagination-controls (pageChange) = "page=($event)"></pagination-controls>
-            </div>  -->
+                  < Pagination --> 
+                   <!-- <pagination-controls (pageChange) = "page=($event)"></pagination-controls>
+            </div>    -->
       </div>
       
       

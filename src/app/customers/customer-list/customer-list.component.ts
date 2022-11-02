@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CustomerService } from 'src/app/shared/customer.service';
+import { Loan } from 'src/app/shared/loan';
 
 @Component({
   selector: 'app-customer-list',
@@ -9,7 +11,7 @@ import { CustomerService } from 'src/app/shared/customer.service';
 export class CustomerListComponent implements OnInit {
 
  
-  constructor(public customerService:CustomerService) { }
+  constructor(public customerService:CustomerService , private router:Router) { }
  
   ngOnInit(): void {
     console.log("Welcome life cycle");
@@ -35,6 +37,18 @@ export class CustomerListComponent implements OnInit {
     //   }
     // )
     // );
+  }
+
+   //logout
+   logOut(){
+    
+    this.router.navigateByUrl('/login');
+  }
+
+  rejectLoan(loan:Loan){
+      console.log("deleted");
+      loan.active = false;
+      
   }
 
 

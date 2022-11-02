@@ -1,66 +1,202 @@
 <div class="container">
-      <nav class="navbar bg-light">
-            <div class="container">
-              <a class="navbar-brand" href="#">
-                  <h2>
-                     <small class="text-muted"><b>Welcome to Customer Registration</b></small>
-                  </h2>  
-               <hr>
-              </a>
-            </div>
-          </nav><br><br>
-          <span  style="font-weight: bold;">Fill the Details</span><br><br>
-          <div class="input-group">
-            <span class="input-group-text">First and last name</span>
-            <input type="text" aria-label="First name" class="form-control" placeholder="first name" formControlName ="firstName" required>
-            <input type="text" aria-label="Last name" class="form-control" placeholder="last name"  formControlName ="lastName" required>
-          </div>
-         
-          <br>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text form-label" id="addon-wrapping">Mobile Number</span>
-            <input type="number" maxlength="10" minlength="10" class="form-control" placeholder="enter mobile number" aria-label="Username" aria-describedby="addon-wrapping" id="validationCustom03" required>
-          </div>
-          <br>
-          <div class="input-group">
-            <span class="input-group-text">Address</span>
-            <textarea class="form-control" aria-label="With textarea" placeholder="enter address here" required></textarea>
-          </div>
-          <br>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Date of Birth</span>
-            <input type="date" maxlength="10" minlength="10" class="form-control" aria-label="Username" aria-describedby="addon-wrapping" required>
-          </div>
-          <br>
-            <span>Maritial Status</span>
-          <select class="form-select" aria-label="Disabled select example" required>
-            <option selected>Select from here</option>
-            <option value="1">Married</option>
-            <option value="2">Unmarried</option>
-            <option value="3">Divorced</option>
-          </select>
-          <br>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text form-label" id="addon-wrapping">Email-Id</span>
-            <input type="email"  maxlength="30" minlength="5"  class="form-control" placeholder="enter email here" aria-label="Username" aria-describedby="addon-wrapping" required>
-          </div>
-          
-          <br>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Password</span>
-            <input type="text" maxlength="20" minlength="6" class="form-control" placeholder="enter password" aria-label="Username" aria-describedby="addon-wrapping" required>
-          </div>
-          <br>
-          <div class="input-group flex-nowrap">
-            <span class="input-group-text" id="addon-wrapping">Confirm Password</span>
-            <input type="password" maxlength="20" minlength="6" class="form-control" placeholder="Confirm password" aria-label="Username" aria-describedby="addon-wrapping" required>
-          </div>
-          <br>
-          <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-            <button class="btn btn-primary me-md-2" type="button">Register</button>
-            <button class="btn btn-secondary" type="button">Reset</button>
-          </div>
+  <nav class="navbar bg-light">
+    <div class="container">.
+
+
+
+      <a class="navbar-brand" href="#">
+        <h2>
+          <small class="text-muted"><b>Welcome to Customer Registration</b></small>
+        </h2>
+        <hr>
+      </a>
+    </div>
+  </nav><br><br>
+  <span style="font-weight: bold;">Fill the Details</span><br><br>
+
+  <div class="form-group">
+
+    <form action="" [formGroup]="registrationForm" (ngSubmit)="onRegister()" class="form-control">
+
+      <div class="input-group">
       
+        <input type="text" aria-label="customerId" class="form-control" placeholder="Enter name"
+          formControlName="customerId" required hidden>
+
+          
+        <input type="text" aria-label="userId" class="form-control" placeholder=""
+        formControlName="userId" required hidden>
+
+      </div>
+
+      &nbsp;
+
+      <div class="input-group">
+        <span class="input-group-text">Name</span>
+        <input type="text" aria-label="First name" class="form-control" placeholder="Enter name"
+          formControlName="customerName" required>
+
+      </div>
+
+      <div *ngIf="isSubmitted && formControls.customerName.errors">
+        <div *ngIf="formControls.customerName.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter fullname.
+        </div>
+      </div>
+
+      <br>
+
+    
+      <div class="input-group">
+        <div class="form-control">
+       
+          <span class="input-group-text">Gender</span>
+       
+          <div>
+            <input type="radio" formControlName="gender" name="gender" aria-label="male" value="male" required>
+            Male
+          </div>
+          <div>    <input type="radio" formControlName="gender" name="gender" aria-label="female" value="female">
+            Female</div>
          
+            <div>  <input type="radio" formControlName="gender" name="gender" aria-label="Other" value="other">
+              Other</div>
+        
+  
+        </div>
       </div>
       
+
+      <div *ngIf="isSubmitted && formControls.gender.errors">
+        <div *ngIf="formControls.gender.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter gender
+        </div>
+      </div>
+
+      <br>
+
+
+      <div class="input-group">
+        <span class="input-group-text">Address</span>
+        <textarea class="form-control" aria-label="With textarea" formControlName="address" placeholder="enter address here" required></textarea>
+      </div>
+
+      <div *ngIf="isSubmitted && formControls.address.errors">
+        <div *ngIf="formControls.address.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter an Address.
+        </div>
+      </div>
+
+      <br>
+
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text form-label" id="addon-wrapping">Mobile Number</span>
+        <input type="number" maxlength="10" minlength="10" class="form-control" placeholder="enter mobile number"
+          aria-label="phoneNumber" aria-describedby="addon-wrapping" id="validationCustom03" formControlName="phoneNumber" required>
+
+      </div>
+
+      <div *ngIf="isSubmitted && formControls.phoneNumber.errors">
+        <div *ngIf="formControls.phoneNumber.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter a valid phone number.
+        </div>
+      </div>
+      <br>
+
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Date of Birth</span>
+        <input type="date" formControlName="dob" maxlength="10" minlength="10" class="form-control" aria-label="Username"
+          aria-describedby="addon-wrapping" required>
+      </div>
+
+      
+      <div *ngIf="isSubmitted && formControls.dob.errors">
+        <div *ngIf="formControls.dob.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter your Date of birth.
+        </div>
+      </div>
+      <br>
+      <span>Maritial Status</span>
+      <select class="form-select" formControlName="maritalStatus" aria-label="Disabled select example" required>
+        <option selected>Select from here</option>
+        <option value="1">Married</option>
+        <option value="2">Unmarried</option>
+        <option value="3">Divorced</option>
+      </select>
+
+      <div *ngIf="isSubmitted && formControls.maritalStatus.errors">
+        <div *ngIf="formControls.maritalStatus.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter a Marital Status.
+        </div>
+      </div>
+      <br>
+
+      <div class="input-group">
+        <span class="input-group-text">Salary</span>
+        <input type="number" aria-label="salary" class="form-control" placeholder="Enter salary"
+          formControlName="salary" required>
+
+      </div>
+
+      <div *ngIf="isSubmitted && formControls.salary.errors">
+        <div *ngIf="formControls.salary.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter Salary.
+        </div>
+      </div>
+
+      <br>
+      <div class="input-group">
+        <span class="input-group-text">Occupation</span>
+        <input type="text" aria-label="occupation" class="form-control" placeholder="Enter occupation"
+          formControlName="occupation" required>
+
+      </div>
+
+      <div *ngIf="isSubmitted && formControls.occupation.errors">
+        <div *ngIf="formControls.occupation.errors.required"
+          style="color:red; text-align: left;" class="loginError">
+          Enter Salary.
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <!-- <div class="input-group flex-nowrap">
+        <span class="input-group-text form-label" id="addon-wrapping">Email-Id</span>
+        <input type="email" maxlength="30" minlength="5" class="form-control" placeholder="enter email here"
+          aria-label="Username" aria-describedby="addon-wrapping" required>
+      </div>
+
+      <br>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Password</span>
+        <input type="text" maxlength="20" minlength="6" class="form-control" placeholder="enter password"
+          aria-label="Username" aria-describedby="addon-wrapping" required>
+      </div>
+      <br>
+      <div class="input-group flex-nowrap">
+        <span class="input-group-text" id="addon-wrapping">Confirm Password</span>
+        <input type="password" maxlength="20" minlength="6" class="form-control" placeholder="Confirm password"
+          aria-label="Username" aria-describedby="addon-wrapping" required>
+      </div>
+      <br> -->
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+        <button class="btn btn-primary me-md-2" (click)="
+            onRegister">Register</button>
+
+        <button class="btn btn-secondary" type="button">Reset</button>
+      </div>
+
+    </form>
+  </div>
+
+
+</div>

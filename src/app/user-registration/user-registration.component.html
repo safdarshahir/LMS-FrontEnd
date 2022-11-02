@@ -1,0 +1,94 @@
+<div class="container">
+    <nav class="navbar bg-light">
+        <div class="container">.
+            <a class="navbar-brand" href="#">
+                <h2>
+                    <small class="text-muted"><b>Welcome to User Registration</b></small>
+                </h2>
+                <hr>
+            </a>
+        </div>
+    </nav><br><br>
+    <span style="font-weight: bold;">Fill the Details</span><br><br>
+
+    <div class="form-group">
+
+        <form action="" [formGroup]="registrationForm" (ngSubmit)="onRegister()" class="form-control">
+
+                
+               &nbsp;
+
+                <input type="text" aria-label="customerId" class="form-control" placeholder=""
+                    formControlName="userId" required hidden>
+
+                <br>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text form-label" id="addon-wrapping">Email-Id</span>
+                    <input type="email" formControlName="userEmail" maxlength="30" minlength="5" class="form-control"
+                        placeholder="enter email here" aria-label="userEmail" aria-describedby="addon-wrapping"
+                        required>
+                </div>
+
+                <div *ngIf="isSubmitted && formControls.userEmail.errors">
+                    <div *ngIf="formControls.userEmail.errors.required && formControls.userEmail.errors"
+                      style="color:red; text-align: left;" class="loginError">
+                      Enter valid Email.
+                    </div>
+                  </div>
+
+                <br>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">Password</span>
+                    <input type="text" formControlName="passwordTwo" maxlength="20" minlength="6" class="form-control"
+                        placeholder="enter password" aria-label="password" aria-describedby="addon-wrapping" required>
+                </div>
+
+                <div *ngIf="isSubmitted && formControls.passwordTwo.errors">
+                    <div *ngIf="formControls.passwordTwo.errors.required && formControls.passwordTwo.errors"
+                      style="color:red; text-align: left;" class="loginError">
+                      Enter Password.
+                    </div>
+                  </div>
+
+                  <div *ngIf="isSubmitted &&  formControls.passwordTwo.errors">
+                    <div *ngIf="(formControls.passwordOne.value === formControls.passwordTwo.value) &&formControls.passwordTwo.errors "
+                      style="color:red; text-align: left;" class="loginError">
+                      Passwords are not same.
+                    </div>
+                  </div>
+
+                <br>
+                <div class="input-group flex-nowrap">
+                    <span class="input-group-text" id="addon-wrapping">Confirm Password</span>
+                    <input type="password" formControlName="passwordOne" maxlength="20" minlength="6" class="form-control"
+                        placeholder="Confirm password" aria-label="password" aria-describedby="addon-wrapping" required>
+                </div>
+
+                <div *ngIf="isSubmitted && formControls.passwordOne.errors ">
+                    <div *ngIf="(formControls.passwordOne.value === formControls.passwordTwo.value) && formControls.passwordOne.errors "
+                      style="color:red; text-align: left;" class="loginError">
+                      Passwords are not same.
+                    </div>
+                  </div>
+
+                  <div *ngIf="isSubmitted && formControls.passwordOne.errors ">
+                    <div *ngIf="formControls.passwordOne.errors.required && formControls.passwordOne.errors "
+                      style="color:red; text-align: left;" class="loginError">
+                      Enter Password.
+
+                    </div>
+                  </div>
+                <br>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+
+                    <button class="btn btn-primary me-md-2" (click)="
+              onRegister">Register</button>
+
+                    <button class="btn btn-secondary" type="button">Reset</button>
+                </div>
+      
+        </form>
+    </div>
+
+
+</div>

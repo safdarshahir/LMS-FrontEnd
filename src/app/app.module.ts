@@ -12,6 +12,8 @@ import { AuthService } from './shared/auth.service';
 import { CustomerService } from './shared/customer.service';
 import { CustomerListComponent } from './customers/customer-list/customer-list.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +24,16 @@ import { HttpClientModule } from '@angular/common/http';
     FieldOfficerComponent,
     CustomerLoanDetailsComponent,
     CustomerListComponent,
+    UserRegistrationComponent,
     // LoginComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [AuthService,CustomerService],
   bootstrap: [AppComponent]
